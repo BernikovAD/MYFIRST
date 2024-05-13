@@ -101,8 +101,11 @@ class MainActivity : Activity() {
             val input = str.toString()
             val numbers = input.split(Regex("[+-/*]"))
             if (numbers.size >= 2) {
+
                 a = numbers[0].toDouble()
+
                 b = numbers[1].toDouble()
+                
                 action = input[numbers[0].length].toString()
                 val result = when (action) {
                     resources.getString(R.string.divide) -> {
