@@ -9,6 +9,7 @@ import com.abernikov.myfirstapplication.databinding.ActivityMainBinding
 
 
 class MainActivity : Activity() {
+
     private val str = StringBuilder()
     private var a = 0.0
     private var b = 0.0
@@ -42,12 +43,15 @@ class MainActivity : Activity() {
             binding.text1.text = str.toString()
         }
         binding.button1.setOnClickListener {
+            Log.i("youTag", "${R.string._1} ${resources.getString(R.string._1)}")
             binding.text1.text = str.append(resources.getString(R.string._1))
         }
         binding.button2.setOnClickListener {
-            binding.text1.text = str.append(resources.getString(R.string._2))
+            Log.i("youTag", "${R.string._2} ${resources.getString(R.string._2)}")
+            binding.text1.text = str.append(R.string._2)
         }
         binding.button3.setOnClickListener {
+            Log.i("youTag", "${R.string._3} ${resources.getString(R.string._3)}")
             binding.text1.text = str.append(resources.getString(R.string._3))
         }
         binding.button4.setOnClickListener {
@@ -105,7 +109,6 @@ class MainActivity : Activity() {
                 a = numbers[0].toDouble()
 
                 b = numbers[1].toDouble()
-                
                 action = input[numbers[0].length].toString()
                 val result = when (action) {
                     resources.getString(R.string.divide) -> {
