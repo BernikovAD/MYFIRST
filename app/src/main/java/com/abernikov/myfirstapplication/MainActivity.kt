@@ -23,15 +23,7 @@ class MainActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        when (Settings.loadTheme(this)) {
-            2 -> {
-                setTheme(R.style.AppThemeDark)
-            }
 
-            else -> {
-                setTheme(R.style.AppThemeLight)
-            }
-        }
         Log.i("youTag", "onCreate ${savedInstanceState?.getString("str")}")
         setContentView(binding.root)
         initView()
@@ -43,15 +35,12 @@ class MainActivity : Activity() {
             binding.text1.text = str.toString()
         }
         binding.button1.setOnClickListener {
-            Log.i("youTag", "${R.string._1} ${resources.getString(R.string._1)}")
             binding.text1.text = str.append(resources.getString(R.string._1))
         }
         binding.button2.setOnClickListener {
-            Log.i("youTag", "${R.string._2} ${resources.getString(R.string._2)}")
-            binding.text1.text = str.append(R.string._2)
+            binding.text1.text = str.append(resources.getString(R.string._2))
         }
         binding.button3.setOnClickListener {
-            Log.i("youTag", "${R.string._3} ${resources.getString(R.string._3)}")
             binding.text1.text = str.append(resources.getString(R.string._3))
         }
         binding.button4.setOnClickListener {

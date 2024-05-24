@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="info">#D84A3F</color>
     <color name="orange">#FF9800</color>
+    <color name="gainsboro">#DCD1D0</color>
 </resources>

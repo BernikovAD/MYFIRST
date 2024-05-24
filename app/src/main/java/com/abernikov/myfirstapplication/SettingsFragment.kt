@@ -1,47 +1,26 @@
 package com.abernikov.myfirstapplication
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.abernikov.myfirstapplication.databinding.FragmentSettingsBinding
 
 
-class SettingsFragment : Fragment() {
-
-    private var _binding: FragmentSettingsBinding? = null
-    private val binding
-        get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentSettingsBinding.inflate(inflater)
-        return binding.root
-    }
+class SettingsFragment : BaseFragment<FragmentSettingsBinding>(FragmentSettingsBinding::inflate) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Toast.makeText(
-            requireContext(),
-            "${Settings.loadTheme(requireContext())}",
-            Toast.LENGTH_LONG
-        ).show()
         when (Settings.loadTheme(requireContext())) {
             2 -> {
                 requireContext().setTheme(R.style.AppThemeDark)
-                binding.radioButtonLightStyle.isChecked = true
-                binding.radioButtonNightStyle.isChecked = false
+                binding.radioButtonLightStyle.isChecked = false
+                binding.radioButtonNightStyle.isChecked = true
             }
 
             else -> {
-                requireContext().setTheme(R.style.AppThemeLight)
-                binding.radioButtonNightStyle.isChecked = true
-                binding.radioButtonLightStyle.isChecked = false
+                requireContext().setTheme(R.style.MyFirstApplication)
+                binding.radioButtonNightStyle.isChecked = false
+                binding.radioButtonLightStyle.isChecked = true
             }
         }
         binding.radioButtons.setOnCheckedChangeListener { _, checkedId ->
@@ -52,6 +31,7 @@ class SettingsFragment : Fragment() {
             }
             requireActivity().recreate()
         }
+
         binding.ivBack.setOnClickListener {
             requireActivity().finish()
         }
@@ -61,8 +41,4 @@ class SettingsFragment : Fragment() {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
-    }
 }

@@ -21,9 +21,6 @@ class BlankFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         findNavController().navigateUp()
-        /*       viewRoot.findViewById<TextView>(R.id.text).setOnClickListener {
-           requireActivity().supportFragmentManager.beginTransaction().replace(R.id.container, MyFragment()).commit()
-       }*/
     }
 
     companion object {
