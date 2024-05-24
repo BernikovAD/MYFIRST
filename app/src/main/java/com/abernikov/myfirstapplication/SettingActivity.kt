@@ -7,12 +7,14 @@ import com.abernikov.myfirstapplication.databinding.ActivitySettingBinding
 
 
 class SettingActivity : AppCompatActivity() {
-    private lateinit var binding: ActivitySettingBinding
+    //private lateinit var binding: ActivitySettingBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySettingBinding.inflate(layoutInflater)
+        val binding = ActivitySettingBinding.inflate(layoutInflater)
         setContentView(binding.root)
         (supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment).navController
     }
+
+
 }

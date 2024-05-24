@@ -50,13 +50,14 @@ class SettingsFragment : Fragment() {
                 R.id.radioButtonLightStyle -> Settings.saveTheme(requireContext(), 1)
                 else -> Settings.saveTheme(requireContext(), 1)
             }
+            requireActivity().recreate()
         }
         binding.ivBack.setOnClickListener {
             requireActivity().finish()
         }
         binding.button.setOnClickListener {
-            findNavController().navigate(SettingsFragmentDirections.actionSettingsFragmentToMyFragment())
-            //startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://google.com")))
+            val action = SettingsFragmentDirections.actionSettingsFragmentToMyFragment()
+            findNavController().navigate(action)
         }
     }
 
