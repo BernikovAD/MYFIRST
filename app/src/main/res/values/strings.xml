@@ -21,4 +21,6 @@
     <string name="night">ночь</string>
     <string name="day">день</string>
     <string name="login">логин</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
