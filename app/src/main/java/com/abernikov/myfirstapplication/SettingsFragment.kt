@@ -12,13 +12,11 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>(FragmentSettingsB
         super.onViewCreated(view, savedInstanceState)
         when (Settings.loadTheme(requireContext())) {
             2 -> {
-                requireContext().setTheme(R.style.AppThemeDark)
                 binding.radioButtonLightStyle.isChecked = false
                 binding.radioButtonNightStyle.isChecked = true
             }
 
             else -> {
-                requireContext().setTheme(R.style.MyFirstApplication)
                 binding.radioButtonNightStyle.isChecked = false
                 binding.radioButtonLightStyle.isChecked = true
             }
